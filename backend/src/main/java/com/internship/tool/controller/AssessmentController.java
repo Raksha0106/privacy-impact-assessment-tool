@@ -16,22 +16,19 @@ public class AssessmentController {
     @Autowired
     private AssessmentService service;
 
-    // GET ALL PAGINATED
     @GetMapping("/all")
-    public Page<Assessment> getAll(
+    public Page<Assessment> getAllAssessments(
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "5") int size) {
 
-        return service.getAllPaginated(PageRequest.of(page, size));
+        return service.getAllAssessments(PageRequest.of(page, size));
     }
 
-    // GET BY ID
     @GetMapping("/{id}")
-    public Assessment getById(@PathVariable Long id) {
-        return service.getById(id);
+    public Assessment getAssessmentById(@PathVariable Long id) {
+        return service.getAssessmentById(id);
     }
 
-    // CREATE
     @PostMapping("/create")
     @ResponseStatus(HttpStatus.CREATED)
     public Assessment create(@Valid @RequestBody Assessment assessment) {
