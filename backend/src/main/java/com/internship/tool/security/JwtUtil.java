@@ -3,26 +3,21 @@ package com.internship.tool.security;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
-import io.jsonwebtoken.security.Keys;
 import org.springframework.stereotype.Component;
 
-import javax.crypto.SecretKey;
 import java.util.Date;
 
 @Component
 public class JwtUtil {
 
-    private final SecretKey SECRET =
-            Keys.hmacShaKeyFor("mysecretkeymysecretkeymysecretkey12".getBytes());
-
-    private final long EXPIRATION = 1000 * 60 * 60;
+    private final String SECRET = "mysecretkey";
 
     public String generateToken(String username) {
         return Jwts.builder()
                 .setSubject(username)
                 .setIssuedAt(new Date())
-                .setExpiration(new Date(System.currentTimeMillis() + EXPIRATION))
-                .signWith(SECRET, SignatureAlgorithm.HS256)
+                .setExpiration(new Date(System.currentTimeMillis() + 3600000))
+                .signWith(SignatureAlgorithm.HS256, SECRET.getBytes())
                 .compact();
     }
 
@@ -30,13 +25,13 @@ public class JwtUtil {
         return getClaims(token).getSubject();
     }
 
-    public boolean validateToken(String token) {
-        return !getClaims(token).getExpiration().before(new Date());
+    public boolean validateToken(String token, String username) {
+        return extractUsername(token).equals(username);
     }
 
     private Claims getClaims(String token) {
         return Jwts.parserBuilder()
-                .setSigningKey(SECRET)
+                .setSigningKey(SECRET.getBytes())
                 .build()
                 .parseClaimsJws(token)
                 .getBody();
