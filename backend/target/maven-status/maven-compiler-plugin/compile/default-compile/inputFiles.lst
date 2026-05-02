@@ -4,6 +4,7 @@ C:\Users\Raksha V Kadagi\privacy-impact-assessment-tool\backend\src\main\java\co
 C:\Users\Raksha V Kadagi\privacy-impact-assessment-tool\backend\src\main\java\com\internship\tool\exception\InvalidInputException.java
 C:\Users\Raksha V Kadagi\privacy-impact-assessment-tool\backend\src\main\java\com\internship\tool\security\JwtAuthFilter.java
 C:\Users\Raksha V Kadagi\privacy-impact-assessment-tool\backend\src\main\java\com\internship\tool\security\JwtUtil.java
+C:\Users\Raksha V Kadagi\privacy-impact-assessment-tool\backend\src\main\java\com\internship\tool\service\DataLoader.java
 C:\Users\Raksha V Kadagi\privacy-impact-assessment-tool\backend\src\main\java\com\internship\tool\repository\AssessmentRepository.java
 C:\Users\Raksha V Kadagi\privacy-impact-assessment-tool\backend\src\main\java\com\internship\tool\controller\AuthController.java
 C:\Users\Raksha V Kadagi\privacy-impact-assessment-tool\backend\src\main\java\com\internship\tool\security\SecurityConfig.java

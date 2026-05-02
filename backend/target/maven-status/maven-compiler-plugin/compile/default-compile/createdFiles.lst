@@ -8,5 +8,6 @@ com\internship\tool\security\SecurityConfig.class
 com\internship\tool\service\AssessmentService.class
 com\internship\tool\exception\ResourceNotFoundException.class
 com\internship\tool\ToolApplication.class
+com\internship\tool\service\DataLoader.class
 com\internship\tool\security\JwtUtil.class
 com\internship\tool\exception\GlobalExceptionHandler.class

@@ -2,6 +2,7 @@ package com.internship.tool.controller;
 
 import com.internship.tool.entity.Assessment;
 import com.internship.tool.service.AssessmentService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -10,19 +11,18 @@ import java.util.List;
 @RequestMapping("/assessments")
 public class AssessmentController {
 
-    private final AssessmentService service;
+    @Autowired
+    private AssessmentService service;
 
-    public AssessmentController(AssessmentService service) {
-        this.service = service;
-    }
-
+    // 🔹 GET API (you already have this)
     @GetMapping("/list")
     public List<Assessment> getAll() {
         return service.getAllList();
     }
 
-    @GetMapping("/{id}")
-    public Assessment getById(@PathVariable Long id) {
-        return service.getById(id);
+    // 🔥 ADD THIS METHOD (POST API)
+    @PostMapping("/add")
+    public Assessment add(@RequestBody Assessment assessment) {
+        return service.save(assessment);
     }
 }
