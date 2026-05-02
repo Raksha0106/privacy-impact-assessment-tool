@@ -35,14 +35,17 @@ public class AssessmentControllerTest {
     @MockBean
     private JwtAuthFilter jwtAuthFilter;
 
-    @Test
-    void testGetAll() throws Exception {
+   @Test
+void testGetAll() throws Exception {
 
-        when(service.getAllList())
-                .thenReturn(Arrays.asList(new Assessment()));
+    Assessment a = new Assessment();
+    a.setName("Test");
 
-        mockMvc.perform(get("/assessments/list")
-                .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk());
-    }
+    when(service.getAllList())
+            .thenReturn(Arrays.asList(a));
+
+    mockMvc.perform(get("/assessments/list")
+            .contentType(MediaType.APPLICATION_JSON))
+            .andExpect(status().isOk());
 }
+    }
