@@ -12,11 +12,15 @@ public class DataLoader {
     @Bean
     CommandLineRunner loadData(AssessmentRepository repo) {
         return args -> {
-            for (int i = 1; i <= 5; i++) {
+
+            // This loop inserts 30 records
+            for (int i = 1; i <= 30; i++) {
                 Assessment a = new Assessment();
                 a.setName("Assessment " + i);
                 repo.save(a);
             }
+
+            System.out.println("✅ 30 records inserted successfully");
         };
     }
 }
